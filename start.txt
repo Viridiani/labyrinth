@@ -1,3 +1,5 @@
 To start server:
 In directory with manage.py:
 python manage.py runserver 8000
+
+All new apps must be initiated in the same folder as manage.py

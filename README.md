@@ -1,2 +1,3 @@
 # labyrinth
- Personal life organizer
+Personal life organizer
+Uses Django
