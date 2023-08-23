@@ -30,3 +30,4 @@ class Items(models.Model):
 # Check this: https://www.techwithtim.net/tutorials/django/sqlite3-database
 # Because to some extent, Events/Organizations and ToDoList/Items should be the same
 # Need to check that in the planner (not plannerFinal) app
+# This will actually need to be sketched out for database planning
