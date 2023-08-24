@@ -26,7 +26,7 @@ class Items(models.Model):
     pass
 
 
-# need to add admin login as well :/
+# need to add admin login as well?? probably not
 # Check this: https://www.techwithtim.net/tutorials/django/sqlite3-database
 # Because to some extent, Events/Organizations and ToDoList/Items should be the same
 # Need to check that in the planner (not plannerFinal) app
