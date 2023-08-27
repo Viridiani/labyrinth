@@ -1,28 +1,12 @@
 from django.db import models
 
-
-class Notes(models.Model):
+# Classes, organizations, misc, etc.
+class Domains(models.Model):
     pass
 
 
-class Events(models.Model):
-    pass
-
-
-class Organizations(models.Model):
-    pass
-
-
-class Quotes(models.Model):
-    pass
-
-
-# Same with these two
-class ToDoList(models.Model):
-    pass
-
-
-class Items(models.Model):
+# Notes, quotes, events, etc.
+class Entities(models.Model):
     pass
 
 
