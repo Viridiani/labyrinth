@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     "planner.apps.PlannerConfig",
+    "plannerFinal.apps.PlannerfinalConfig",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

@@ -2,12 +2,17 @@ from django.db import models
 
 # Classes, organizations, misc, etc.
 class Domains(models.Model):
-    pass
+    domain_name = models.CharField(max_length=100)
+    start_date = models.DateField("Beginning Date")
+    end_date = models.DateField("Ending Date")
+
 
 
 # Notes, quotes, events, etc.
 class Entities(models.Model):
-    pass
+    entity_name = models.CharField(max_length=100)
+    start_date_time = models.DateTimeField("Entry Date")
+    end_date_time = models.DateTimeField("Due Date")
 
 
 # need to add admin login as well?? probably not
