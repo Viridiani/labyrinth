@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Domains, Entities
+from .models import Domain, TimedEntity, UntimedEntity
 
-admin.site.register(Domains)
-admin.site.register(Entities)
+admin.site.register(Domain)
+admin.site.register(TimedEntity)
+admin.site.register(UntimedEntity)
