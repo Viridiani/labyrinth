@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import Domains, Entities
 
-# Register your models here.
+admin.site.register(Domains)
+admin.site.register(Entities)
