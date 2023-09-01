@@ -3,6 +3,13 @@
         <title>Labyrinth</title>
     </head>
     <body>
-        <p>{{domain_name}}</p>
+        <!-- not class? name instead? -->
+        <div id="content", name="content">
+        {% block content %}
+        <h2>{{domain_name}}</h2>
+        <h3>{{untimedEntity}}</h3>
+        <h3>{{timedEntity}}</h3>
+        {% endblock %}
+        </div>
     </body>
 </html>

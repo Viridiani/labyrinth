@@ -14,8 +14,8 @@ class Domain(models.Model):
 
 # Notes, quotes, events, etc.
 class TimedEntity(models.Model):
-    domains = models.ForeignKey(Domain, on_delete=models.CASCADE)
-    #Use a foreign key (domain object when creating an item)
+    domains = models.ForeignKey(Domain, on_delete=models.CASCADE, related_name="timedEntity")
+    # Use a foreign key (domain object when creating an item)
     # When deleting a Domain, remove all entities beneath it
     entity_name = models.CharField(max_length=100)
     category = models.CharField(max_length = 100)
@@ -30,7 +30,7 @@ class TimedEntity(models.Model):
 
 
 class UntimedEntity(models.Model):
-    domains = models.ForeignKey(Domain, on_delete=models.CASCADE)
+    domains = models.ForeignKey(Domain, on_delete=models.CASCADE, related_name="untimedEntity")
     entity_name = models.CharField(max_length=100)
     category = models.CharField(max_length=100)
     text = models.TextField("Notes")
