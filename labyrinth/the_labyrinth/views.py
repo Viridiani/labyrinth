@@ -22,5 +22,8 @@ def base(request, domain_name):
 
 
 # Main page
+domains = Domain.objects.all()
+untimedEntities = UntimedEntity.objects.all()
+timedEntities = TimedEntity.objects.all()
 def labyrinth(request):
-    return render(request, "the_labyrinth/labyrinth.html", {})
+    return render(request, "the_labyrinth/labyrinth.html", {"d": domains, "u": untimedEntities, "t": timedEntities})

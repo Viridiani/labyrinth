@@ -1,5 +1,40 @@
-{% extends 'the_labyrinth/base.html' %}
+{% load static %}
 
+<html>
+    <head>
+        <title>Labyrinth</title>
+        <link rel="stylesheet" href="{% static 'the_labyrinth/labyrinth.css' %}">
+    </head>
+    <body>
 {% block content %}
-<h1>Welcome to the Labyrinth</h1>
+<h1 class="intro">Welcome to the Labyrinth</h1>
+<div class="calendar">
+    <h2>Calendar</h2>
+    <!-- use JS to generate a calendar -->
+</div>
+<div class="spread">
+    <h2>Spread (dropdown/list)</h2>
+    <h3>Domains</h3>
+    {% for i in d %}
+        <div class="spreadCategory">
+            <h4>{{i.domain_name}}</h4>
+            <p>Untimed items</p>
+            <ul>
+                {% for j in u %}
+                    <li>{{j}}</li>
+                {% endfor %}
+            </ul>
+            <p>Timed items</p>
+            <ol>
+                {% for k in t %}
+                    <li>{{k}}</li>
+                {% endfor %}
+            </ol>
+        </div>
+    {% endfor %}
+</div>
+
 {% endblock %}
+
+    </body>
+</html>

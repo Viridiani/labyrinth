@@ -1,0 +1,28 @@
+/* 
+---
+Don't forget to clear your cached files/images if the changes aren't occuring!
+---
+*/
+@font-face {
+    font-family: papernotes;
+    src: url(papernotes/PapernotesRegular.woff);
+    font-weight: normal;
+    /* Credits to https://letterflowstudio.com/ no specific artist is listed */
+}
+
+* {
+    padding: 0.25vw;
+    margin: 0.25vw;
+}
+
+body {
+    font-family: papernotes;
+    background-color: rgb(33, 61, 4);
+}
+
+.intro {
+    text-align: center;
+    font-size: 3vw;
+    padding: 1vw;
+    margin: 1vw;
+}
