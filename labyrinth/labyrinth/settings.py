@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    "plannerFinal.apps.PlannerfinalConfig",
+    "the_labyrinth.apps.the_labyrinthConfig",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

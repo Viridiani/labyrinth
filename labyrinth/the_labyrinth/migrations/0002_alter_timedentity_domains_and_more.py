@@ -7,18 +7,18 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('plannerFinal', '0001_initial'),
+        ('the_labyrinth', '0001_initial'),
     ]
 
     operations = [
         migrations.AlterField(
             model_name='timedentity',
             name='domains',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='timedEntity', to='plannerFinal.domain'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='timedEntity', to='the_labyrinth.domain'),
         ),
         migrations.AlterField(
             model_name='untimedentity',
             name='domains',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='untimedEntity', to='plannerFinal.domain'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='untimedEntity', to='the_labyrinth.domain'),
         ),
     ]

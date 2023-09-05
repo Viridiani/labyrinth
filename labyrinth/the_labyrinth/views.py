@@ -18,9 +18,9 @@ def base(request, domain_name):
         t.append([i.domains, i.entity_name, i.category, i.start_date_time, i.end_date_time, i.text, i.complete])
 
     baseData = {"domain_name":domain, "domain_content":d, "untimedEntity":untimedEntity, "untimedEntity_content": u, "timedEntity":timedEntity, "timedEntity_content": t}
-    return render(request, "plannerFinal/base.html", baseData) 
+    return render(request, "the_labyrinth/base.html", baseData) 
 
 
 # Main page
 def labyrinth(request):
-    return render(request, "plannerFinal/labyrinth.html", {})
+    return render(request, "the_labyrinth/labyrinth.html", {})

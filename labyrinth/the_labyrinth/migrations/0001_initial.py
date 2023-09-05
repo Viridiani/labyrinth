@@ -29,7 +29,7 @@ class Migration(migrations.Migration):
                 ('entity_name', models.CharField(max_length=100)),
                 ('category', models.CharField(max_length=100)),
                 ('text', models.TextField(verbose_name='Notes')),
-                ('domains', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='plannerFinal.domain')),
+                ('domains', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='the_labyrinth.domain')),
             ],
         ),
         migrations.CreateModel(
@@ -42,7 +42,7 @@ class Migration(migrations.Migration):
                 ('end_date_time', models.DateTimeField(verbose_name='Due Date')),
                 ('text', models.TextField(verbose_name='Description')),
                 ('complete', models.BooleanField()),
-                ('domains', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='plannerFinal.domain')),
+                ('domains', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='the_labyrinth.domain')),
             ],
         ),
     ]

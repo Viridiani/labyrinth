@@ -44,7 +44,7 @@ class UntimedEntity(models.Model):
 Getting into the command line
 python manage.py shell
 commands for sql database stuff:
-from plannerFinal.models import Domain, TimedEntity, Untimed Entity
+from the_labyrinth.models import Domain, TimedEntity, Untimed Entity
 d = Domain(domain_name="...", start_date="...", end_date="...", description="...")
 d.save()
 Domain.objects.all()
