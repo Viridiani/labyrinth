@@ -6,9 +6,14 @@
         <!-- not class? name instead? -->
         <div id="content", name="content">
         {% block content %}
-        <h2>{{domain_name}}</h2>
+        <h1>This page is for debugging only</h1>
+        <br>
+        <h1>{{domain_name}}</h1>
+        <h2>{{domain_content}}</h2>
         <h3>{{untimedEntity}}</h3>
+        <h4>{{untimedEntity_content}}</h4>
         <h3>{{timedEntity}}</h3>
+        <h4>{{timedEntity_content}}</h4>
         {% endblock %}
         </div>
     </body>
