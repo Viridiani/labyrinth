@@ -8,4 +8,6 @@ register = template.Library()
 def in_domain(obj, domain):
     return obj.filter(domains=domain)
 
-# Need to have a filter which gets an id?
+# Filter which should sort from obj.Objects.all() or from the filtered by domains and give back by due date
+def sort_date(obj):
+    return obj.order_by('end_date_time')

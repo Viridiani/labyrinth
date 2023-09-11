@@ -5,37 +5,118 @@
     <head>
         <title>Labyrinth</title>
         <link rel="stylesheet" href="{% static 'the_labyrinth/labyrinth.css' %}">
+        <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.png' %}" >
     </head>
     <body>
-{% block content %}
-<h1 class="intro">Welcome to the Labyrinth</h1>
-<div class="calendar">
-    <h2>Calendar</h2>
-    <!-- use Python to generate a calendar using the for loops -->
-</div>
-<div class="spread">
-    <h2>Spread (dropdown/list)</h2>
-    <h3>Domains</h3>
-    {% for i in d %}
-        <div class="spreadCategory">
-            <h4>{{i.domain_name}}</h4>
-            <p>Untimed items</p>
-            <ul>
-                {% for j in u|from_domain:i.id %}
-                    <li>{{j}}</li>
-                {% endfor %}
-            </ul>
-            <p>Timed items</p>
-            <ol>
-                {% for k in t %}
-                    <li>{{k}}</li>
-                {% endfor %}
-            </ol>
-        </div>
-    {% endfor %}
-</div>
 
-{% endblock %}
+        {% block content %}
+
+        <h1 class="intro">Welcome to the Labyrinth</h1>
+        <div id="calendar">
+            <h2>Calendar</h2>
+            <script>
+                const WEEK_DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+                const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+                
+                function days_in_month(month, year) {
+                    return new Date(year, month + 1, 0).getDate();
+                }
+
+                function first_day(month, year) {
+                    return new Date(year, month, 1).getDay();
+                }
+
+                function generate_date_array() {
+                    let d = new Date();
+                    let d_in_m = days_in_month(d.getMonth(), d.getFullYear());
+                    let f_d = first_day(d.getMonth(), d.getFullYear());  //this may need to be minus 1
+                    // Year (int), Month(int), Day(day of week, 0-7 with Sunday being 0), Date (day of month e.g. 10), days in month (number), first day (first day of the month)
+                    return [d.getFullYear(), d.getMonth(), d.getDay(), d.getDate(), d_in_m, f_d];
+                }
+
+                function generate_calendar(date_array) {
+                    let calendar = document.getElementById("calendar");
+
+                    /* Current Day */
+                    let title_span = document.createElement("span");
+                    title_span.setAttribute("class", "calendar_title");
+                    let today = document.createElement("h3");
+                    today.innerHTML = WEEK_DAYS[date_array[2]] + ", " + MONTHS[date_array[1]] + " " + date_array[3] + ", " + date_array[0];
+                    title_span.appendChild(today);
+                    calendar.appendChild(title_span);
+                    calendar.appendChild(document.createElement("br"));
+
+                    /* Visual */
+                    let calendar_box = document.createElement("div"); // this needs to be a flex box in css
+                    calendar_box.setAttribute("id", "calendar_box");
+
+                    for (var i=0; i<(date_array[4] + date_array[5]); i++) {
+                        let box = document.createElement("div");
+                        box.setAttribute("class", "box");
+                        let d_of_w = document.createElement("h4");
+                        d_of_w.innerHTML = WEEK_DAYS[i % WEEK_DAYS.length];
+                        box.appendChild(d_of_w);
+
+                        if (i >= date_array[5] && i <= date_array[4] + date_array[5]) {
+                            let inner_box = document.createElement("p");
+                            inner_box.innerHTML = i - date_array[5] + 1;
+                            box.appendChild(inner_box);
+                        }
+
+                        if (i + 1 - date_array[5] == date_array[3]) {
+                            box.style.backgroundColor = "#7F5CB3";
+                            box.style.color = "#ddd";
+                        }
+
+                        calendar_box.appendChild(box);
+
+                        if ((i + 1) % 7 == 0 && i != 0) {
+                            let hr = document.createElement("hr");
+                            hr.setAttribute("class", "calendar_hr");
+                            calendar_box.appendChild(hr);   
+                        }
+                    }
+
+                    calendar.appendChild(calendar_box);
+                    return 0;
+                }
+
+                generate_calendar(generate_date_array());
+            </script>
+        </div>
+        <br>
+        <div id="spread">
+            <h2>Spread</h2>
+            <h3>Domains</h3>
+            <!-- Put domains into an inline block or block -->
+            <!-- put the ol/li into block? separate into own div and then block? -->
+            <!-- Put the li into flex boxes -->
+            {% for i in d %}
+                <div class="spreadCategory">
+                    <h4>{{i.domain_name}}</h4>
+                    <p>Untimed items</p>
+                    <ul>
+                        {% for j in u|from_domain:i.id %}
+                            <li>{{j}}</li>
+                        {% endfor %}
+                    </ul>
+                    <p>Timed items</p>
+                    <ol>
+                        {% for k in t %}
+                            <li>{{k}}</li>
+                        {% endfor %}
+                    </ol>
+                </div>
+            {% endfor %}
+            <script>
+                // To make a dropdown menu on this eventually
+            </script>
+        </div>
+        <div id="item_form">
+            <h2>Placeholder: form for adding items</h2>
+        </div>
+
+        {% endblock %}
 
     </body>
 </html>

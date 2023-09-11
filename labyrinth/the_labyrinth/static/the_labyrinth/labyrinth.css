@@ -17,7 +17,12 @@ Don't forget to clear your cached files/images if the changes aren't occuring!
 
 body {
     font-family: papernotes;
-    background-color: rgb(33, 61, 4);
+    background-color: #DAD5EB;
+    color: #111;
+}
+
+h2 {
+    font-size: 2vw;
 }
 
 .intro {
@@ -25,4 +30,49 @@ body {
     font-size: 3vw;
     padding: 1vw;
     margin: 1vw;
+}
+
+#calendar {
+    text-align: center;
+    background-color: #C4BDDE;
+    border: 0.25vw dashed #435F3A;
+    border-radius: 1vw;
+    margin: 4px;
+    padding: 1vw;
+    width: 70%;
+    margin-left: 15%;
+}
+
+.calendar_title {
+    font-size: 1.25vw;
+}
+
+#calendar_box {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.box {
+    font-size: 1vw;
+    width: 5vw;
+    height: 5vw;
+    border: 0.15vw solid black;
+    border-radius: 0.4vw;
+    margin: 0.05vw;
+    background-color: #C5A6F3;
+    color: black;
+}
+
+.calendar_hr {
+    width: 100%;
+    height: 0%;
+    padding: 0%;
+    margin: 0%;
+    visibility: hidden;
+}
+
+#spread {
+    text-align: center;
 }
