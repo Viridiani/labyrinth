@@ -5,4 +5,4 @@ Personal life organizer
   <li>Uses SQLite3 for database</li>
   <li>HTML, CSS, JS for webpage</li>
 </ul>
-
+<p>SQL database mostly empty because it contains my own info/schedule, so placeholder items are used instead. </p>
