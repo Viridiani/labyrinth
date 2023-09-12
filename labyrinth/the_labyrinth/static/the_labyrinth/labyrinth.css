@@ -22,7 +22,7 @@ body {
 }
 
 h2 {
-    font-size: 2vw;
+    font-size: 3vw;
 }
 
 .intro {
@@ -75,4 +75,65 @@ h2 {
 
 #spread {
     text-align: center;
+    background-color: #C4BDDE;
+    border: 0.25vw dashed #435F3A;
+    border-radius: 1vw;
+    margin: 4px;
+    padding: 1vw;
+}
+
+#spread_full_box {
+    background-color: #C5A6F3;
+    border: 0.15vw solid black;
+    border-radius: 0.4vw;
+    margin: 0.05vw;
+}
+
+#spread_buttons {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    border: 0.15vw solid black;
+    background-color: #eee;
+    border-radius: 0.4vw;
+    margin: 0.05vw;
+    padding: 0.25vw;
+}
+
+button:hover {
+    background-color: #ccc;
+}
+
+#spread_content {
+    display: flex;
+    justify-content: center;
+}
+
+.spread_block {
+    display:inline-block;
+    width: 100%;
+    text-align: left;
+    min-height: 20vw;
+}
+
+#spread_content h3 {
+    font-size: 1.75vw;
+}
+
+.spread_section_title {
+    font-size: 1.40vw;
+}
+
+.spread_entity_name {
+    font-size: 1.25vw;
+}
+
+.spread_brief {
+    font-size: 0.8vw;
+}
+
+.spread_description {
+    font-size: 1.15vw;
 }

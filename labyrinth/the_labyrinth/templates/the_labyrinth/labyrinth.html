@@ -17,6 +17,7 @@
             <script>
                 const WEEK_DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
                 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+                let domain_array = [];
                 
                 function days_in_month(month, year) {
                     return new Date(year, month + 1, 0).getDate();
@@ -87,33 +88,75 @@
         <br>
         <div id="spread">
             <h2>Spread</h2>
-            <h3>Domains</h3>
-            <!-- Put domains into an inline block or block -->
             <!-- put the ol/li into block? separate into own div and then block? -->
             <!-- Put the li into flex boxes -->
-            {% for i in d %}
-                <div class="spreadCategory">
-                    <h4>{{i.domain_name}}</h4>
-                    <p>Untimed items</p>
-                    <ul>
-                        {% for j in u|from_domain:i.id %}
-                            <li>{{j}}</li>
-                        {% endfor %}
-                    </ul>
-                    <p>Timed items</p>
-                    <ol>
-                        {% for k in t %}
-                            <li>{{k}}</li>
-                        {% endfor %}
-                    </ol>
+            <div id="spread_full_box">
+                <div id="spread_buttons">
+                    {% for i in d %}
+                        <button onclick="toggle_spread('{{i.domain_name}}')"><h3>{{i.domain_name}}</h3></button>
+                        <script>domain_array.push('{{i.domain_name}}')</script>
+                    {% endfor %}
                 </div>
-            {% endfor %}
+                <br>
+                <div id="spread_content">
+                    {% for i in d %}
+                        <div id={{i.domain_name}} class="spread_block">
+                            <div class="{{i.domain_name}}_body">
+                                <h4 class="spread_section_title">Untimed items</h4>
+                                <ul>
+                                    {% for j in u|from_domain:i.id %}
+                                        <li>
+                                            <p class="spread_entity_name">
+                                                {{j.entity_name}} (Category: {{j.category}})
+                                            </p>
+                                            <p class="spread_description">
+                                                {{j.text}}
+                                            </p>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                                <h4 class="spread_section_title">Timed items</h4>
+                                <ol>
+                                    {% for k in t|from_domain:i.id %}
+                                        <li>
+                                            <p class="spread_entity_name">
+                                                {{k.entity_name}} (Category: {{k.entity_name}})
+                                            </p>
+                                            <h5 class="spread_brief">
+                                                Entry date: {{k.start_date_time}}, Due date: {{k.end_date_time}}, Completion: {{k.complete}}
+                                            </h5>
+                                            <p class="spread_description">
+                                                {{k.text}}
+                                            </p>
+                                        </li>
+                                    {% endfor %}
+                                </ol>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
             <script>
-                // To make a dropdown menu on this eventually
+                function hide_all(domain_arr) {
+                    for (var i=0; i<domain_arr.length; i++) {
+                        let temp = document.getElementById(domain_arr[i]);
+                        temp.style.display = "none";
+                    }
+                }
+
+                function toggle_spread(domain) {
+                    hide_all(domain_array);
+                    let current = document.getElementById(domain);
+                    current.style.display = "block";
+                }
+                hide_all(domain_array);
+
+                // default to domain_array[0] displaying
+                document.getElementById(domain_array[0]).style.display = "block";
             </script>
         </div>
         <div id="item_form">
-            <h2>Placeholder: form for adding items</h2>
+            <!-- <h2>form to add items</h2> -->
         </div>
 
         {% endblock %}
